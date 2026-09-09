@@ -44,8 +44,27 @@ COLUNAS_NOME = [
     "Cupom",
 ]
 
+# Colunas que indicam que o video JA foi subido como anuncio.
+# Se qualquer uma delas estiver marcada, o download e pulado.
+COLUNAS_JA_SUBIDO = [
+    "Perfil LM",
+    "Perfil Dark",
+    "Perfil da criadora",
+]
+
+# Valores que contam como "ja subido" nas colunas acima.
+# A comparacao ignora acento, maiuscula e espaco em branco.
+VALORES_SIM = ["sim", "s", "x", "ok", "feito", "subido"]
+
 # Segundos de pausa entre downloads. Nao abaixe muito: o TikTok limita.
 PAUSA = 3.0
+
+# Marca d'agua do TikTok.
+#   False = baixa limpo, sem o logo (padrao)
+#   True  = mantem o logo e o @ da criadora no video
+# Anuncios com cara de conteudo organico as vezes performam melhor COM o logo.
+# Se quiser testar as duas versoes, rode uma vez com cada valor.
+MANTER_MARCA_DAGUA = False
 
 # ---------------------------------------------------------------------------
 
@@ -113,10 +132,14 @@ def baixar_video(url, destino_sem_extensao, cookies):
     from yt_dlp import YoutubeDL
     from yt_dlp.utils import DownloadError
 
+    if MANTER_MARCA_DAGUA:
+        # O formato de id "download" e a versao com o logo do TikTok queimado.
+        formato = "b[format_id*=download]/b"
+    else:
+        formato = "bv*[format_id!*=download]+ba/b[format_id!*=download]/b"
+
     opts = {
-        # No TikTok o formato com id "download" e o COM marca d'agua.
-        # Evitamos ele; se nao houver alternativa, cai no melhor disponivel.
-        "format": "bv*[format_id!*=download]+ba/b[format_id!*=download]/b",
+        "format": formato,
         "merge_output_format": "mp4",
         "outtmpl": str(destino_sem_extensao) + ".%(ext)s",
         "quiet": True,
@@ -158,6 +181,10 @@ def main():
     cols_nome = [c for c in (achar_coluna(cabecalho, [n]) for n in COLUNAS_NOME) if c]
     cols_nome = list(dict.fromkeys(cols_nome))
 
+    cols_subido = [c for c in (achar_coluna(cabecalho, [n]) for n in COLUNAS_JA_SUBIDO) if c]
+    cols_subido = list(dict.fromkeys(cols_subido))
+    valores_sim = {normalizar(v) for v in VALORES_SIM}
+
     ja_baixados = set()
     if MANIFESTO.exists():
         ja_baixados = {l.strip() for l in MANIFESTO.read_text(encoding="utf-8").splitlines() if l.strip()}
@@ -167,13 +194,30 @@ def main():
     print(f"Planilha  : {len(linhas)} linhas")
     print(f"Coluna URL: {col_url}")
     print(f"Nome      : {' + '.join(cols_nome) or '(so o ID)'} + ID")
+    print(f"Ja subido : {' / '.join(cols_subido) or '(nenhuma coluna encontrada)'}")
     print(f"Ja no historico: {len(ja_baixados)}\n")
 
-    novos, falhas, pulados = [], [], 0
+    novos, falhas, pulados, ignorados, ja_subidos = [], [], 0, [], 0
 
     for i, linha in enumerate(linhas, start=2):
         url = (linha.get(col_url) or "").strip()
+        if not url:
+            continue
+
+        # Varias linhas da planilha vem sem "https://" na frente.
+        # Sem isso o script pularia essas linhas em silencio.
         if not url.lower().startswith("http"):
+            url = "https://" + url.lstrip("/")
+
+        # Links que nao sao do TikTok (Instagram, YouTube) sao separados:
+        # eles quase sempre exigem login e falhariam com erro confuso.
+        if "tiktok.com" not in url.lower():
+            ignorados.append({"linha": i, "url": url})
+            continue
+
+        # Se ja foi subido em algum dos perfis, nao precisa baixar.
+        if any(normalizar(linha.get(c) or "") in valores_sim for c in cols_subido):
+            ja_subidos += 1
             continue
 
         vid = id_do_video(url)
@@ -204,7 +248,8 @@ def main():
     rel = [
         f"# Ultima execucao\n",
         f"- Baixados agora: **{len(novos)}**",
-        f"- Ja existiam (pulados): {pulados}",
+        f"- Ja subidos como anuncio (pulados): {ja_subidos}",
+        f"- Ja estavam baixados (pulados): {pulados}",
         f"- Falhas: **{len(falhas)}**\n",
     ]
     if falhas:
@@ -214,9 +259,18 @@ def main():
         for f_ in falhas:
             rel.append(f"| {f_['linha']} | {f_['url']} | {f_['erro'].replace('|', '/')} |")
         rel.append("\nRode o workflow de novo para tentar essas linhas outra vez.")
+
+    if ignorados:
+        rel.append("\n## Links que nao sao do TikTok (baixe na mao)\n")
+        rel.append("| Linha | Link |")
+        rel.append("|---|---|")
+        for g in ignorados:
+            rel.append(f"| {g['linha']} | {g['url']} |")
+
     RELATORIO.write_text("\n".join(rel) + "\n", encoding="utf-8")
 
-    print(f"\n{'-'*52}\nBaixados: {len(novos)} | Pulados: {pulados} | Falhas: {len(falhas)}")
+    print(f"\n{'-'*52}")
+    print(f"Baixados: {len(novos)} | Ja subidos: {ja_subidos} | Ja baixados: {pulados} | Falhas: {len(falhas)} | Nao-TikTok: {len(ignorados)}")
 
     # Nao derruba o job por falhas parciais: o relatorio ja registra.
     if novos == [] and falhas:
