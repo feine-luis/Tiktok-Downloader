@@ -1,0 +1,50 @@
+name: Baixar TikToks
+
+on:
+  # Roda todo dia util as 8h de Brasilia (11h UTC).
+  # Ajuste o horario aqui se quiser outro.
+  schedule:
+    - cron: "0 11 * * 1-5"
+  # Permite rodar na mao pelo botao "Run workflow" na aba Actions.
+  workflow_dispatch:
+
+jobs:
+  baixar:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Clonar o repositorio
+        uses: actions/checkout@v4
+
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+
+      - name: Baixar os videos
+        env:
+          SHEET_CSV_URL: ${{ secrets.SHEET_CSV_URL }}
+          TIKTOK_COOKIES: ${{ secrets.TIKTOK_COOKIES }}
+        run: python scripts/baixar.py
+
+      - name: Empacotar os videos para download
+        uses: actions/upload-artifact@v4
+        with:
+          name: videos-${{ github.run_number }}
+          path: out/
+          retention-days: 30
+          if-no-files-found: ignore
+
+      - name: Salvar o historico no repositorio
+        run: |
+          rm -f cookies.txt
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add baixados.txt ultimo_relatorio.md 2>/dev/null || true
+          git diff --staged --quiet || git commit -m "downloads $(date -u +%Y-%m-%d)"
+          git push || true
