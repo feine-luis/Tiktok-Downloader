@@ -1,8 +1,8 @@
 # Ultima execucao
 
-- Baixados agora: **6**
+- Baixados agora: **0**
 - Ja subidos como anuncio (pulados): 85
-- Ja estavam baixados (pulados): 0
+- Ja estavam baixados (pulados): 6
 - Falhas: **0**
 
 
