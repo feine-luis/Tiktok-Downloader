@@ -1,9 +1,9 @@
 # Ultima execucao
 
 - Baixados agora: **0**
-- Ja subidos como anuncio (pulados): 219
+- Ja subidos como anuncio (pulados): 228
 - Ja estavam baixados (pulados): 6
-- Falhas: **47**
+- Falhas: **41**
 
 ## Linhas que falharam
 
@@ -11,17 +11,8 @@
 |---|---|---|
 | 169 | https://www.tiktok.com/@francaetano35/video/7692161448247561479 | ERROR: [TikTok] 7692161448247561479: Unexpected response from webpage request; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate |
 | 194 | https://www.tiktok.com/@thaismathias42/video/7679449993203191061 | ERROR: [TikTok] 7679449993203191061: Unexpected response from webpage request; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate |
-| 227 | https://www.tiktok.com/@lili.amaral90/video/7688779999893032193 | ERROR: [TikTok] 7688779999893032193: Unexpected response from webpage request; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate |
-| 228 | https://www.tiktok.com/@gisela.salles/video/7697629335200500999 | ERROR: [TikTok] 7697629335200500999: Unexpected response from webpage request; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate |
-| 230 | https://www.tiktok.com/@lumascoli/video/7696943297922796821 | ERROR: [TikTok] 7696943297922796821: Unexpected response from webpage request; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate |
-| 231 | https://www.tiktok.com/@lilishop1977/video/7698149738583002389 | ERROR: [TikTok] 7698149738583002389: Unexpected response from webpage request; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate |
-| 232 | https://www.tiktok.com/@lili.amaral90/video/7689460102591499538 | ERROR: [TikTok] 7689460102591499538: Unexpected response from webpage request; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate |
-| 233 | https://www.tiktok.com/@lili.amaral90/video/7697750487373712658 | ERROR: [TikTok] 7697750487373712658: Unexpected response from webpage request; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate |
-| 234 | https://www.tiktok.com/@lili.amaral90/video/7697750577643539728 | ERROR: [TikTok] 7697750577643539728: Unexpected response from webpage request; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate |
-| 235 | https://www.tiktok.com/@lili.amaral90/video/7697750697068006664 | ERROR: [TikTok] 7697750697068006664: Unexpected response from webpage request; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate |
 | 236 | https://www.tiktok.com/@cleia.maia.s.leite/video/7697816448927878452 | ERROR: [TikTok] 7697816448927878452: Unexpected response from webpage request; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate |
 | 237 | https://www.tiktok.com/@cleia.maia.s.leite/video/7697819881906965780 | ERROR: [TikTok] 7697819881906965780: Unexpected response from webpage request; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate |
-| 238 | https://www.tiktok.com/@thaismathias42/video/7697853446547918101 | ERROR: [TikTok] 7697853446547918101: Unexpected response from webpage request; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate |
 | 239 | https://www.tiktok.com/@thaismathias42/video/7697854407106514196 | ERROR: [TikTok] 7697854407106514196: Unexpected response from webpage request; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate |
 | 240 | https://www.tiktok.com/@lili.amaral90/video/7697967978209463568 | ERROR: [TikTok] 7697967978209463568: Unexpected response from webpage request; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate |
 | 244 | https://www.tiktok.com/@priscila.waideman/video/7698060374075018497 | ERROR: [TikTok] 7698060374075018497: Unexpected response from webpage request; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate |
@@ -56,6 +47,9 @@
 | 275 | https://www.tiktok.com/@crisrodrigues015/video/7698060238712212752 | ERROR: [TikTok] 7698060238712212752: Unexpected response from webpage request; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate |
 | 276 | https://www.tiktok.com/@andreia.vantroba/video/7701175643844726023 | ERROR: [TikTok] 7701175643844726023: Unexpected response from webpage request; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate |
 | 277 | https://www.tiktok.com/@rubiangeloficial/video/7701170570641083668 | ERROR: [TikTok] 7701170570641083668: Unexpected response from webpage request; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate |
+| 278 | https://www.tiktok.com/@lili.amaral90/video/7700968045061213447 | ERROR: [TikTok] 7700968045061213447: Unexpected response from webpage request; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate |
+| 279 | https://www.tiktok.com/@lili.amaral90/video/7700996191558962440 | ERROR: [TikTok] 7700996191558962440: Unexpected response from webpage request; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate |
+| 280 | https://www.tiktok.com/@carolinexavierp/video/7700806297557536021 | ERROR: [TikTok] 7700806297557536021: Unexpected response from webpage request; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate |
 
 Rode o workflow de novo para tentar essas linhas outra vez.
 
