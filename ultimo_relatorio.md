@@ -1,21 +1,10 @@
 # Ultima execucao
 
 - Baixados agora: **0**
-- Ja subidos como anuncio (pulados): 263
+- Ja subidos como anuncio (pulados): 268
 - Ja estavam baixados (pulados): 6
-- Falhas: **5**
+- Falhas: **0**
 
-## Linhas que falharam
-
-| Linha | Link | Erro |
-|---|---|---|
-| 169 | https://www.tiktok.com/@francaetano35/video/7692161448247561479 | ERROR: [TikTok] 7692161448247561479: Unexpected response from webpage request; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate |
-| 194 | https://www.tiktok.com/@thaismathias42/video/7679449993203191061 | ERROR: [TikTok] 7679449993203191061: Unexpected response from webpage request; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate |
-| 248 | https://www.tiktok.com/@rotinadacp/video/7697653314669776180 | ERROR: [TikTok] 7697653314669776180: Unexpected response from webpage request; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate |
-| 249 | https://www.tiktok.com/@rotinadacp/video/7697665186118880533 | ERROR: [TikTok] 7697665186118880533: Unexpected response from webpage request; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate |
-| 250 | https://www.tiktok.com/@rotinadacp/video/7697673935592148245 | ERROR: [TikTok] 7697673935592148245: Unexpected response from webpage request; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate |
-
-Rode o workflow de novo para tentar essas linhas outra vez.
 
 ## Links que nao sao do TikTok (baixe na mao)
 
