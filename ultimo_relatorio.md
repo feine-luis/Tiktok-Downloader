@@ -1,17 +1,10 @@
 # Ultima execucao
 
-- Baixados agora: **4**
-- Ja subidos como anuncio (pulados): 352
+- Baixados agora: **6**
+- Ja subidos como anuncio (pulados): 369
 - Ja estavam baixados (pulados): 3
-- Falhas: **1**
+- Falhas: **0**
 
-## Linhas que falharam
-
-| Linha | Link | Erro |
-|---|---|---|
-| 366 | https://www.tiktok.com/@juju.shoop/video/7709274217535081748 | ERROR: [TikTok] 7709274217535081748: This post may not be comfortable for some audiences. Log in for access. Use --cookies-from-browser or --cookies for the authentication. See  ht |
-
-Rode o workflow de novo para tentar essas linhas outra vez.
 
 ## Links que nao sao do TikTok (baixe na mao)
 
